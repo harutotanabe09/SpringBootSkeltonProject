@@ -1,70 +1,76 @@
 plugins {
-	id 'org.springframework.boot' version '2.3.1.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+    id 'com.diffplug.gradle.spotless' version '4.5.1'
 }
 
 // Copy the resources referred by the Doma annotation processors to
 // the destinationDir of the compileJava task
-task copyDomaResources(type: Sync)  {
-	from sourceSets.main.resources.srcDirs
-	into compileJava.destinationDir
-	include "doma.compile.config"
-	include "META-INF/**/*.sql"
-	include "META-INF/**/*.script"
+task copyDomaResources(type: Sync) {
+    from sourceSets.main.resources.srcDirs
+    into compileJava.destinationDir
+    include "doma.compile.config"
+    include "META-INF/**/*.sql"
+    include "META-INF/**/*.script"
 }
 
 group = 'com.app'
 sourceCompatibility = '11'
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 compileJava {
-	dependsOn copyDomaResources
-	options.encoding = "UTF-8"
+    dependsOn copyDomaResources
+    options.encoding = "UTF-8"
 }
 
-
-
+spotless {
+    java {
+        googleJavaFormat('1.8')
+    }
+}
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 // Doma Setting
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 dependencies {
-	// springframework
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation "org.springframework.boot:spring-boot-starter-jdbc"
+    // springframework
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation "org.springframework.boot:spring-boot-starter-jdbc"
 
-	// DataBase
-	runtimeOnly 'org.postgresql:postgresql'
+    // DataBase
+    runtimeOnly 'org.postgresql:postgresql'
 
-	implementation 'org.flywaydb:flyway-core'
-	compileOnly 'org.projectlombok:lombok'
+    // Migration
+    implementation 'org.flywaydb:flyway-core'
 
-	// doma exclude springframework
-	annotationProcessor "org.seasar.doma.boot:doma-spring-boot-starter:1.4.0"
-	compile("org.seasar.doma.boot:doma-spring-boot-starter:1.4.0") {
-		exclude group: "org.springframework.boot"
-	}
+    // doma exclude springframework
+    annotationProcessor "org.seasar.doma.boot:doma-spring-boot-starter:1.4.0"
+    compile("org.seasar.doma.boot:doma-spring-boot-starter:1.4.0") {
+        exclude group: "org.springframework.boot"
+    }
 
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
+    // Library
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

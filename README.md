@@ -13,7 +13,7 @@ Spring Boot Application Name
 :orange:  Java Install
 
 ``
-
+gradle bootRun
 ``
 
 :apple:  Java Build
@@ -28,11 +28,17 @@ gradle build
 
 Intelli J 
 
+- Settings > Build, Excecution, Deployment > Compiler > Annotation Processor > `Enable Annotation Processing`
+- Intellij > Ctrl+Shift+A > type Registry... > `compiler.automake.allow.when.app.running`
+- http://livereload.com/extensions/
+
 ### :books: TODO
 
 ・DomaのAPI作成
 ・DBパスワード暗号化
 ・自動コード整形
+・便利ライブラリ
+・テストクラス作成
 
 ### :man: DB Start
 
@@ -46,12 +52,14 @@ docker run -d --name postgres -e POSTGRES_PASSWORD=test -p 5432:5432 postgres
 
 | library Name | Descritption |
 | :---------------------------------------| :-------------------------------|
-| [Lombok Project](https://projectlombok.org/)|Auto Java Beans |
-| [Springframework](https://projects.spring.io/spring-framework/)| Spring Framework|
+| [Springframework](https://projects.spring.io/spring-framework/)| Framework |
 | [Doma2](https://doma.readthedocs.io/ja/stable/)| O/R Mapper |
-| [spring-boot-doma2](https://github.com/domaframework/doma-spring-boot)| Doma and Spring Boot|
-| [Flyway](https://flywaydb.org/)| DB mingration |
-| [Thymeleaf](http://www.thymeleaf.org/)| Template engine |
-| [WebJars](https://www.webjars.org/)| jQueryなどのクライアント側ライブラリをJARとして組み込む|
-| [ModelMapper](http://modelmapper.org/)| Beanマッピングライブラリ|
-| [Ehcache](http://www.ehcache.org/)| キャッシュライブラリ|
+| [spring-boot-doma2](https://github.com/domaframework/doma-spring-boot)| O/R Mapper Library |
+| [Flyway](https://flywaydb.org/)| DB Mingration |
+| [Thymeleaf](http://www.thymeleaf.org/)| Template Engine |
+| [WebJars](https://www.webjars.org/)| JavaScript Library |
+| [ModelMapper](http://modelmapper.org/)| Model Library |
+| [Ehcache](http://www.ehcache.org/)| Chache Library |
+| [Spotless](https://github.com/diffplug/spotless/tree/master/plugin-gradle) | Code Formmatter |
+| [Lombok Project](https://projectlombok.org/) | Java Beans Library |
+
