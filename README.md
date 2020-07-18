@@ -18,7 +18,7 @@ Spring Boot Application Name
 
 :apple:  Java Build
 
-crated *.jar 
+crated jar file
 
 ``
 gradle build
@@ -27,6 +27,18 @@ gradle build
 ### :star2: Reccomad Editor
 
 Intelli J 
+
+### :books: TODO
+
+・DomaのAPI作成
+・DBパスワード暗号化
+・自動コード整形
+
+### :man: DB Start
+
+docker run -d --name postgres -e POSTGRES_PASSWORD=test -p 5432:5432 postgres
+
+default user : postgres
 
 ### :star: libraries
 
@@ -41,4 +53,3 @@ Intelli J
 | [WebJars](https://www.webjars.org/)| jQueryなどのクライアント側ライブラリをJARとして組み込む|
 | [ModelMapper](http://modelmapper.org/)| Beanマッピングライブラリ|
 | [Ehcache](http://www.ehcache.org/)| キャッシュライブラリ|
-
