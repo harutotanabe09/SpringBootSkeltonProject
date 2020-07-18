@@ -4,6 +4,16 @@ plugins {
 	id 'java'
 }
 
+// Copy the resources referred by the Doma annotation processors to
+// the destinationDir of the compileJava task
+task copyDomaResources(type: Sync)  {
+	from sourceSets.main.resources.srcDirs
+	into compileJava.destinationDir
+	include "doma.compile.config"
+	include "META-INF/**/*.sql"
+	include "META-INF/**/*.script"
+}
+
 group = 'com.app'
 sourceCompatibility = '11'
 
@@ -14,6 +24,7 @@ configurations {
 }
 
 compileJava {
+	dependsOn copyDomaResources
 	options.encoding = "UTF-8"
 }
 
@@ -34,13 +45,19 @@ dependencies {
 	// springframework
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-
+	implementation "org.springframework.boot:spring-boot-starter-jdbc"
 
 	// DataBase
 	runtimeOnly 'org.postgresql:postgresql'
 
 	implementation 'org.flywaydb:flyway-core'
 	compileOnly 'org.projectlombok:lombok'
+
+	// doma exclude springframework
+	annotationProcessor "org.seasar.doma.boot:doma-spring-boot-starter:1.4.0"
+	compile("org.seasar.doma.boot:doma-spring-boot-starter:1.4.0") {
+		exclude group: "org.springframework.boot"
+	}
 
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {

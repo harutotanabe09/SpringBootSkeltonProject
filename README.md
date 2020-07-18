@@ -36,9 +36,11 @@ Intelli J
 
 ### :man: DB Start
 
+``
 docker run -d --name postgres -e POSTGRES_PASSWORD=test -p 5432:5432 postgres
+``
 
-default user : postgres
+- default user : postgres
 
 ### :star: libraries
 
