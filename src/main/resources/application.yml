@@ -7,13 +7,13 @@ spring:
   # DBの設定
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=test
     username: postgres
     password: test
   # Migrationの設定
   flyway:
-    enabled: false
-    baseline-on-migrate: false
+    enabled: true
+    baseline-on-migrate: true
   thymeleaf:
     cache: true
     # HTML5モードが非推奨になったのでHTMLモードにする
@@ -22,7 +22,8 @@ spring:
     # 静的コンテンツをキャッシュする
     cache:
       period: 604800
-# Doma2
+
+# Doma
 doma:
   # 方言の設定
   dialect: postgres
