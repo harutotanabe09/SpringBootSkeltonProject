@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.seasar.doma.*;
 
-@Table(name = "staffs")
 @Entity
 @Getter
 @Setter
