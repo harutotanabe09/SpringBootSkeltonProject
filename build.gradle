@@ -1,7 +1,7 @@
 plugins {
+    id 'java'
     id 'org.springframework.boot' version '2.3.3.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-    id 'java'
     id 'com.diffplug.gradle.spotless' version '4.5.1'
 }
 
@@ -26,12 +26,17 @@ configurations {
 
 compileJava {
     dependsOn copyDomaResources
+    dependsOn spotlessApply
     options.encoding = "UTF-8"
 }
 
+// Code Formatter
 spotless {
     java {
         googleJavaFormat('1.8')
+        trimTrailingWhitespace()
+        endWithNewline()
+        removeUnusedImports()
     }
 }
 

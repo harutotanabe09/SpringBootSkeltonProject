@@ -20,7 +20,7 @@ public class SkeltonService {
    * @return
    */
   @Transactional(readOnly = true)
-  public Optional<Staff> findOne(Long id) {
+  public Optional<Staff> findOne(int id) {
     Assert.notNull(id, "must not be null");
     return dao.selectById(id);
   }

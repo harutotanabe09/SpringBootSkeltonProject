@@ -17,5 +17,5 @@ public interface SkeletonDao {
    * @return
    */
   @Select
-  Optional<Staff> selectById(Long id);
+  Optional<Staff> selectById(int id);
 }

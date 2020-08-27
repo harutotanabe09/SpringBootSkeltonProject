@@ -15,7 +15,7 @@ public class Staff extends DomaEntity {
   @Id
   @Column(name = "staff_id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Long id;
+  int id;
 
   // 名前
   String firstName;
