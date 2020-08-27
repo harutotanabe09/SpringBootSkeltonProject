@@ -1,19 +1,23 @@
 package com.app.skelton.controller;
 
+import com.app.skelton.entity.Staff;
 import com.app.skelton.service.SkeltonService;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@RestController
+@Controller
 public class SkeltonController {
 
   @Autowired SkeltonService service;
 
-  @RequestMapping("/skelton")
-  public String index() {
+  @GetMapping("/skelton")
+  public String index(Model model) {
     Long l = 1L;
-    service.findOne(l);
-    return "Greetings from Spring Boot!";
+    Optional<Staff> data = service.findOne(l);
+    model.addAttribute("msg", "get::" + data.get().getFirstName());
+    return "index";
   }
 }

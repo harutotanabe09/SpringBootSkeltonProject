@@ -51,6 +51,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation "org.springframework.boot:spring-boot-starter-jdbc"
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: '5.3.3.RELEASE'
 
     // DataBase
     runtimeOnly 'org.postgresql:postgresql'
@@ -59,9 +60,9 @@ dependencies {
     implementation 'org.flywaydb:flyway-core'
 
     // doma exclude springframework
-    implementation "org.seasar.doma:doma-core:2.38.0"
-    annotationProcessor "org.seasar.doma:doma-processor:2.38.0"
-    compile("org.seasar.doma.boot:doma-spring-boot-starter:1.4.0") {
+    implementation "org.seasar.doma:doma-core:+"
+    annotationProcessor "org.seasar.doma:doma-processor:+"
+    compile("org.seasar.doma.boot:doma-spring-boot-starter:+") {
         exclude group: "org.springframework.boot"
     }
 

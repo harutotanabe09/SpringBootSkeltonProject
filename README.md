@@ -42,6 +42,7 @@ Intelli J
 - [ ] 自動コード整形
 - [ ] 便利ライブラリ
 - [ ] テストクラス作成
+- [ ] テンプレート作成
 
 ### :man: DB Start
 
@@ -69,3 +70,12 @@ docker run -d --name postgres -e POSTGRES_PASSWORD=test -p 5432:5432 postgres
 ### Referer
 
 https://github.com/miyabayt/spring-boot-doma2-sample
+
+### Point
+
+- [ ] Gradleに最新のバージョンをセット
+- [ ] Migrationを使ったSQLファイル
+- [ ] SpotlessCheckでコード自動生成
+- [ ] 汎用のEntityクラス
+
+
