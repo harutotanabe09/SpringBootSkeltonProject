@@ -77,5 +77,5 @@ https://github.com/miyabayt/spring-boot-doma2-sample
 - [ ] Migrationを使ったSQLファイル
 - [ ] SpotlessCheckでコード自動生成
 - [ ] 汎用のEntityクラス
-
+- [ ] 暗号化スクリプトのテスト
 
