@@ -1,4 +1,4 @@
-package com.app.skelton.controller;
+package co.jp.foobar.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

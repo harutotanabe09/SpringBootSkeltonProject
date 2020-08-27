@@ -1,7 +1,7 @@
-package com.app.skelton.service;
+package co.jp.foobar.service;
 
-import com.app.skelton.dao.SkeletonDao;
-import com.app.skelton.entity.Staff;
+import co.jp.foobar.dao.SkeletonDao;
+import co.jp.foobar.entity.Staff;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

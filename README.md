@@ -79,3 +79,6 @@ https://github.com/miyabayt/spring-boot-doma2-sample
 - [ ] 汎用のEntityクラス
 - [ ] 暗号化スクリプトのテスト
 
+### IDE
+
+- [ ] パッケージ名を一括リネーム

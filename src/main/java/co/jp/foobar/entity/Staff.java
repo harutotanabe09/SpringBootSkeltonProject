@@ -1,6 +1,6 @@
-package com.app.skelton.entity;
+package co.jp.foobar.entity;
 
-import com.app.skelton.entity.common.DomaEntity;
+import co.jp.foobar.entity.common.DomaEntity;
 import lombok.Getter;
 import lombok.Setter;
 import org.seasar.doma.*;

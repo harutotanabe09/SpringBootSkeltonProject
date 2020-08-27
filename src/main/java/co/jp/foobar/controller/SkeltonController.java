@@ -1,7 +1,8 @@
-package com.app.skelton.controller;
+package co.jp.foobar.controller;
 
-import com.app.skelton.entity.Staff;
-import com.app.skelton.service.SkeltonService;
+import co.jp.foobar.service.SkeltonService;
+import co.jp.foobar.entity.Staff;
+
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SkeltonController {
 
-  @Autowired SkeltonService service;
+  @Autowired
+  SkeltonService service;
 
   @GetMapping("/skelton")
   public String index(Model model) {

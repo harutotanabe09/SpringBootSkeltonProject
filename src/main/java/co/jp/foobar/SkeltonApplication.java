@@ -1,4 +1,4 @@
-package com.app.skelton;
+package co.jp.foobar;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

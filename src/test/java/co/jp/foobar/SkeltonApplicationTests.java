@@ -1,4 +1,4 @@
-package com.app.skelton;
+package co.jp.foobar;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

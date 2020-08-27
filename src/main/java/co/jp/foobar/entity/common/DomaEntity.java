@@ -1,4 +1,4 @@
-package com.app.skelton.entity.common;
+package co.jp.foobar.entity.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;

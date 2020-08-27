@@ -1,6 +1,6 @@
-package com.app.skelton.dao;
+package co.jp.foobar.dao;
 
-import com.app.skelton.entity.Staff;
+import co.jp.foobar.entity.Staff;
 import java.util.Optional;
 import org.seasar.doma.Dao;
 import org.seasar.doma.Select;
