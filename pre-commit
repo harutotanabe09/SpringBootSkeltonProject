@@ -1,5 +1,26 @@
 #!/bin/sh
 
+# master, develop branchでのcommitを禁止
+BRANCH_NAME=`git symbolic-ref HEAD | sed -e 's:^refs/heads/::'`
+if test $BRANCH_NAME = master -o $BRANCH_NAME = develop; then
+    echo "We cannot commit on ${BRANCH_NAME} branch."
+    exit 1
+fi
+
+# コンフリクト未解消ファイルがあったら警告
+for FILE in `git diff-index --name-status $against | grep -E '\.(swift|pbxproj|m|h|xib|storyboard)$' | cut -c3-`; do
+    if [ -e $FILE ]; then
+        # 削除されたファイルは飛ばす
+        continue
+    fi
+    grep_result=`grep -E '(<<<<<<<|>>>>>>>)' $FILE | grep -v '^$'`
+    if [ -n "${grep_result}" ]; then
+        echo $'\e[1;31m'$FILE$'\e[m' ' <- コンフリクト未解消ファイルがあります'
+        echo $grep_result
+        exit 1
+    fi
+done
+
 # run the tests with the gradle wrapper
 ./gradlew test
 ./gradlew spotlessApply
