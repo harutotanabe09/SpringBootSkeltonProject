@@ -16,19 +16,11 @@ task copyDomaResources(type: Sync) {
 }
 
 // pre commit setting
-tasks.create(name: 'gitExecutableHooks'){
-    doLast {
-        Runtime.getRuntime().exec("chmod -R +x .git/hooks/");
-    }
-}
-
 task installGitHooks(type: Copy) {
     from new File(rootProject.rootDir, 'pre-commit')
     into { new File(rootProject.rootDir, '.git/hooks') }
+    Runtime.getRuntime().exec("chmod -R +x .git/hooks/");
 }
-
-gitExecutableHooks.dependsOn installGitHooks
-clean.dependsOn gitExecutableHooks
 
 group = 'com.app'
 sourceCompatibility = '11'

@@ -22,5 +22,6 @@ for FILE in `git diff-index --name-status $against | grep -E '\.(swift|pbxproj|m
 done
 
 # run the tests with the gradle wrapper
+
 ./gradlew test
 ./gradlew spotlessApply
