@@ -38,7 +38,7 @@ Intelli J
 - [x] コードチェック
 - [x] 自動コード整形
 - [x] DBパスワード暗号化
-- [ ] Javaコンパイルチェック pre commit
+- [x] Javaコンパイルチェック pre commit
 - [ ] DomaのAPI作成 
 - [ ] 便利ライブラリ
 - [ ] テストクラス作成
@@ -78,6 +78,7 @@ https://github.com/miyabayt/spring-boot-doma2-sample
 - [ ] SpotlessCheckでコード自動生成
 - [ ] 汎用のEntityクラス
 - [ ] 暗号化スクリプトのテスト
+- [ ] pre-commitは権限必要。(chmod ug+x .git/hooks/*)
 
 ### IDE
 
