@@ -15,15 +15,20 @@ task copyDomaResources(type: Sync) {
     include "META-INF/**/*.script"
 }
 
-
 // pre commit setting
+tasks.create(name: 'gitExecutableHooks'){
+    doLast {
+        Runtime.getRuntime().exec("chmod -R +x .git/hooks/");
+    }
+}
+
 task installGitHooks(type: Copy) {
-    def file = new File(rootProject.rootDir, 'pre-commit')
-    fileMode = 777
-    destinationDir = file
-    from file
+    from new File(rootProject.rootDir, 'pre-commit')
     into { new File(rootProject.rootDir, '.git/hooks') }
 }
+
+gitExecutableHooks.dependsOn installGitHooks
+clean.dependsOn gitExecutableHooks
 
 group = 'com.app'
 sourceCompatibility = '11'
