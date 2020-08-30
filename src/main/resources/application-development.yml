@@ -1,7 +1,6 @@
-spring:
-  # DBの設定
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=test
-    username: postgres
-    password: test
+# DBの設定
+datasource:
+  driver-class-name: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/postgres?currentSchema=test
+  username: postgres
+  password: 0aacc34cf55ebca52c83b439dda398fe558eca0e6d9c6cb0ab32826aa74e463c
