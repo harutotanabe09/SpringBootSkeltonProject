@@ -15,9 +15,13 @@ task copyDomaResources(type: Sync) {
     include "META-INF/**/*.script"
 }
 
+
 // pre commit setting
 task installGitHooks(type: Copy) {
-    from new File(rootProject.rootDir, 'pre-commit')
+    def file = new File(rootProject.rootDir, 'pre-commit')
+    fileMode = 777
+    destinationDir = file
+    from file
     into { new File(rootProject.rootDir, '.git/hooks') }
 }
 
