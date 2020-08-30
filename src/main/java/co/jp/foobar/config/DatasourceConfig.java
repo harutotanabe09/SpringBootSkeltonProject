@@ -11,9 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Configuration
-/**
- * データベース接続をカスタマイズ。暗号化
- */
+/** データベース接続をカスタマイズ。暗号化 */
 public class DatasourceConfig {
 
   @Value("${datasource.driver-class-name}")
@@ -40,6 +38,6 @@ public class DatasourceConfig {
     TextEncryptor encryptor = Encryptors.text(secret, salt);
     String textDecryptText = encryptor.decrypt(password);
     dataSource.setPassword(textDecryptText);
-    return dataSource;  
+    return dataSource;
   }
 }

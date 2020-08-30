@@ -15,6 +15,11 @@ task copyDomaResources(type: Sync) {
     include "META-INF/**/*.script"
 }
 
+task installGitHooks(type: Copy) {
+    from new File(rootProject.rootDir, 'pre-commit')
+    into { new File(rootProject.rootDir, '.git/hooks') }
+}
+
 group = 'com.app'
 sourceCompatibility = '11'
 
@@ -24,9 +29,12 @@ configurations {
     }
 }
 
+build.dependsOn installGitHooks
+
 compileJava {
     dependsOn copyDomaResources
     dependsOn spotlessApply
+    dependsOn installGitHooks
     options.encoding = "UTF-8"
 }
 
