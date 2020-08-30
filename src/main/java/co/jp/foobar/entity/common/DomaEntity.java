@@ -8,9 +8,9 @@ import lombok.Setter;
 import org.seasar.doma.Column;
 import org.seasar.doma.Version;
 
-@SuppressWarnings("serial")
 @Setter
 @Getter
+@SuppressWarnings("serial")
 public abstract class DomaEntity implements Serializable {
 
   // 作成者

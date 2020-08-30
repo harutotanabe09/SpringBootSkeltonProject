@@ -10,8 +10,6 @@ import org.seasar.doma.*;
 @Setter
 public class Staff extends DomaEntity {
 
-  private static final long serialVersionUID = -3762941082070995608L;
-
   @Id
   @Column(name = "staff_id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
