@@ -17,7 +17,7 @@ public class SkeltonController {
 
   @GetMapping("/skelton")
   public String index(Model model) {
-    Optional<Staff> data = service.findOne(1);
+    Optional<Staff> data = service.findOne(100);
     if (data.isPresent()) {
       model.addAttribute("msg", "get::" + data.get().getFirstName());
     } else {

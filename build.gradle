@@ -22,7 +22,6 @@ task installGitHooks(type: Copy) {
     Runtime.getRuntime().exec("chmod -R +x .git/hooks/");
 }
 
-group = 'com.app'
 sourceCompatibility = '11'
 
 configurations {
