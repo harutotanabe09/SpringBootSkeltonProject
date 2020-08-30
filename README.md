@@ -78,7 +78,7 @@ https://github.com/miyabayt/spring-boot-doma2-sample
 - [ ] SpotlessCheckでコード自動生成
 - [ ] 汎用のEntityクラス
 - [ ] 暗号化スクリプトのテスト
-- [ ] pre-commitは権限必要。(chmod ug+x .git/hooks/*)
+- [ ] 課題：pre-commitは権限必要。(chmod ug+x .git/hooks/*)
 
 ### IDE
 
