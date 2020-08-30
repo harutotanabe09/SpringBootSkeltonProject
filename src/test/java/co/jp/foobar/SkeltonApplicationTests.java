@@ -8,8 +8,8 @@ import org.springframework.security.crypto.encrypt.TextEncryptor;
 
 class SkeltonApplicationTests {
 
-  private static String secret = "1234";
-  private static String salt = "5678";
+  private String secret = "1234";
+  private String salt = "5678";
 
   @Test
   void 暗号化テスト() {
