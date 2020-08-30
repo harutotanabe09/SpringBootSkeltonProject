@@ -18,11 +18,9 @@ task copyDomaResources(type: Sync) {
 
 // pre commit setting
 task installGitHooks(type: Copy) {
-    def file = new File(rootProject.rootDir, 'pre-commit')
-    fileMode = 777
-    destinationDir = file
-    from file
+    from new File(rootProject.rootDir, 'pre-commit')
     into { new File(rootProject.rootDir, '.git/hooks') }
+    Runtime.getRuntime().exec("chmod -R +x .git/hooks/");
 }
 
 group = 'com.app'
@@ -35,6 +33,7 @@ configurations {
 }
 
 build.dependsOn installGitHooks
+clean.dependsOn installGitHooks
 
 compileJava {
     dependsOn copyDomaResources
